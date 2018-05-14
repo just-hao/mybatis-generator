@@ -127,7 +127,7 @@
 	        注意,如果context是MyBatis3Simple:只支持ANNOTATEDMAPPER和XMLMAPPER  
 		targetPackage:mapper接口生成的位置
 	    --> 
-		<javaClientGenerator type="${javaClient.type}" targetPackage="#{javaClient.targetPackage}" targetProject="${targetProject}">
+		<javaClientGenerator type="${javaClient.type}" targetPackage="${javaClient.targetPackage}" targetProject="${targetProject}">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
@@ -286,6 +286,12 @@
 	    selectByExampleQueryId="false"
          -->  
     	<!--</table>  -->
-    	<table schema="" tableName="tb_content"></table> 
+    	<table schema="" tableName="analysiz"
+    	enableCountByExample="false" 
+	    enableUpdateByExample="false"  
+	    enableDeleteByExample="false" 
+	    enableSelectByExample="false"  
+	    selectByExampleQueryId="false">
+    	</table> 
 	</context>
 </generatorConfiguration>
