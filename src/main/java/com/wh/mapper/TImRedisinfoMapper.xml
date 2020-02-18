@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh.mapper.TImRedisinfoMapper">
+  <resultMap id="BaseResultMap" type="com.wh.model.TImRedisinfo">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="recordTime" jdbcType="TIMESTAMP" property="recordtime" />
+    <result column="serviceName" jdbcType="VARCHAR" property="servicename" />
+    <result column="serviceIp" jdbcType="VARCHAR" property="serviceip" />
+    <result column="usedMemory" jdbcType="BIGINT" property="usedmemory" />
+    <result column="usedMemoryRss" jdbcType="BIGINT" property="usedmemoryrss" />
+    <result column="usedMemoryPeak" jdbcType="BIGINT" property="usedmemorypeak" />
+    <result column="totalSystemMemory" jdbcType="BIGINT" property="totalsystemmemory" />
+    <result column="usedMemoryLua" jdbcType="BIGINT" property="usedmemorylua" />
+    <result column="memFragmentationRatio" jdbcType="REAL" property="memfragmentationratio" />
+  </resultMap>
+  
+ 
+  
+  <insert id="insert" parameterType="com.wh.model.TImRedisinfo">
+    insert into t_im_redisinfo (id, createTime, recordTime, 
+      serviceName, serviceIp, usedMemory, 
+      usedMemoryRss, usedMemoryPeak, totalSystemMemory, 
+      usedMemoryLua, memFragmentationRatio)
+    values (#{id,jdbcType=BIGINT}, #{createtime,jdbcType=TIMESTAMP}, #{recordtime,jdbcType=TIMESTAMP}, 
+      #{servicename,jdbcType=VARCHAR}, #{serviceip,jdbcType=VARCHAR}, #{usedmemory,jdbcType=BIGINT}, 
+      #{usedmemoryrss,jdbcType=BIGINT}, #{usedmemorypeak,jdbcType=BIGINT}, #{totalsystemmemory,jdbcType=BIGINT}, 
+      #{usedmemorylua,jdbcType=BIGINT}, #{memfragmentationratio,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wh.model.TImRedisinfo">
+    insert into t_im_redisinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="recordtime != null">
+        recordTime,
+      </if>
+      <if test="servicename != null">
+        serviceName,
+      </if>
+      <if test="serviceip != null">
+        serviceIp,
+      </if>
+      <if test="usedmemory != null">
+        usedMemory,
+      </if>
+      <if test="usedmemoryrss != null">
+        usedMemoryRss,
+      </if>
+      <if test="usedmemorypeak != null">
+        usedMemoryPeak,
+      </if>
+      <if test="totalsystemmemory != null">
+        totalSystemMemory,
+      </if>
+      <if test="usedmemorylua != null">
+        usedMemoryLua,
+      </if>
+      <if test="memfragmentationratio != null">
+        memFragmentationRatio,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordtime != null">
+        #{recordtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servicename != null">
+        #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceip != null">
+        #{serviceip,jdbcType=VARCHAR},
+      </if>
+      <if test="usedmemory != null">
+        #{usedmemory,jdbcType=BIGINT},
+      </if>
+      <if test="usedmemoryrss != null">
+        #{usedmemoryrss,jdbcType=BIGINT},
+      </if>
+      <if test="usedmemorypeak != null">
+        #{usedmemorypeak,jdbcType=BIGINT},
+      </if>
+      <if test="totalsystemmemory != null">
+        #{totalsystemmemory,jdbcType=BIGINT},
+      </if>
+      <if test="usedmemorylua != null">
+        #{usedmemorylua,jdbcType=BIGINT},
+      </if>
+      <if test="memfragmentationratio != null">
+        #{memfragmentationratio,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+
+  <insert id="insertByMap" parameterType="java.util.Map">
+    insert into t_im_redisinfo (createTime, recordTime, 
+      serviceName, serviceIp, usedMemory, 
+      usedMemoryRss, usedMemoryPeak, totalSystemMemory, 
+      usedMemoryLua, memFragmentationRatio)
+    values (#{createTime}, #{recordTime}, 
+      #{serviceName}, #{serviceip}, #{used_memory}, 
+      #{used_memory_rss}, #{used_memory_peak}, #{total_system_memory}, 
+      #{used_memory_lua}, #{mem_fragmentation_ratio})
+  </insert>
+
+</mapper>
